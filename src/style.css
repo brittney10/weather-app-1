@@ -1,0 +1,82 @@
+h1 {
+  color: #0e49b5;
+  font-weight: 900;
+  margin: 20px;
+}
+h5 {
+  font-size: 50px;
+}
+.units {
+  position: relative;
+  top: -60px;
+  left: 90px;
+}
+.temperature {
+  color: #0e49b5;
+  font-size: 40px;
+  font-weight: 900;
+  position: relative;
+  left: 30px;
+}
+
+.container {
+  font-family: "Spartan", sans-serif;
+  padding-top: 60px;
+  max-width: 750px;
+}
+.search-bar-body {
+  padding: 15px;
+}
+.current-weather {
+  font-weight: 600;
+  font-size: 20px;
+  list-style: none;
+  color: #af2d2d;
+}
+.air-quality {
+  color: #0f3057;
+  font-weight: 600;
+  font-size: 20px;
+  position: relative;
+  left: 450px;
+  bottom: 70px;
+  list-style: none;
+}
+.monday,
+.tuesday,
+.wednesday,
+.thursday,
+.friday,
+.saturday {
+  color: #0e49b5;
+  font-size: 25px;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.card-header {
+  font-weight: 700;
+}
+.card-footer {
+  font-weight: 700;
+}
+
+.row {
+  position: relative;
+  bottom: 30px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0 auto;
+}
+.col {
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0 auto;
+}
+.btn-outline-primary,
+.btn-outline-info,
+.btn-outline-success {
+  text-align: left;
+  cursor: text;
+}
