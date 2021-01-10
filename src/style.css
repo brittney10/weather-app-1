@@ -1,5 +1,5 @@
 h1 {
-  color: #0e49b5;
+  color: #ffffff;
   font-weight: 900;
   margin: 20px;
 }
@@ -8,11 +8,11 @@ h5 {
 }
 .units {
   position: relative;
-  top: -60px;
-  left: 90px;
+  top: -25px;
+  left: 40px;
 }
 .temperature {
-  color: #0e49b5;
+  color: #ffffff;
   font-size: 40px;
   font-weight: 900;
   position: relative;
@@ -21,8 +21,21 @@ h5 {
 
 .container {
   font-family: "Spartan", sans-serif;
-  padding-top: 60px;
+  padding-top: 80px;
   max-width: 750px;
+  margin-top: 50px;
+
+  background: #1a2980; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #26d0ce,
+    #1a2980
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #26d0ce,
+    #1a2980
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .search-bar-body {
   padding: 15px;
@@ -31,10 +44,10 @@ h5 {
   font-weight: 600;
   font-size: 20px;
   list-style: none;
-  color: #af2d2d;
+  color: #ffffff;
 }
 .air-quality {
-  color: #0f3057;
+  color: #ffffff;
   font-weight: 600;
   font-size: 20px;
   position: relative;
