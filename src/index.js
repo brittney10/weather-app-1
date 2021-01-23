@@ -26,6 +26,7 @@ function formatHours(timestamp) {
 }
 
 function displayWeather(response) {
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -38,6 +39,10 @@ function displayWeather(response) {
     response.data.weather[0].main;
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
+  );
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 

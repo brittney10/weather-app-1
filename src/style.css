@@ -13,15 +13,15 @@ h5 {
   font-size: 18px;
   color: #ffffff;
   position: relative;
-  top: -25px;
-  left: 40px;
+  top: -30px;
+  left: 16px;
 }
 .temperature {
   color: #ffffff;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 900;
   position: relative;
-  left: 30px;
+  left: 10px;
 }
 
 .container {
@@ -48,6 +48,8 @@ h5 {
 .current-weather {
   font-weight: 600;
   font-size: 20px;
+  position: relative;
+  left: -10px;
   list-style: none;
   color: #ffffff;
 }
@@ -57,7 +59,7 @@ h5 {
   font-size: 20px;
   position: relative;
   left: 450px;
-  bottom: 70px;
+  bottom: 90px;
   list-style: none;
 }
 .monday,
@@ -97,4 +99,9 @@ h5 {
 .btn-outline-success {
   text-align: left;
   cursor: text;
+}
+
+.icon {
+  position: relative;
+  bottom: 15px;
 }
