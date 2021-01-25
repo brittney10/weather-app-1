@@ -69,9 +69,12 @@ function displayForecast(response) {
                   forecast.weather[0].icon
                 }@2x.png"/>
               <div class = "weather-forecast-temperature">
-              <strong>${Math.round(
+              <strong><span id = "temp-min">${Math.round(
                 forecast.main.temp_max
-              )}°</strong> / ${Math.round(forecast.main.temp_min)}°</div>
+              )}°</strong> </span> / <span id ="temp-max"> ${Math.round(
+      forecast.main.temp_min
+    )}°</span>
+              </div>
           </div>`;
   }
 }
@@ -86,28 +89,37 @@ function searchLocation(position) {
   let apiKey = "a995a1036d517aa4d70c6226c85fcce8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentLocation(event) {
-  event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  let temperatureMin = document.querySelector("#temp-min");
+  let temperatureMax = document.querySelector("#temp-max");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  temperatureMin.innerHTML = Math.round(fahrenheitTemperature);
+  temperatureMax.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  let temperatureMin = document.querySelector("#temp-min");
+  let temperatureMax = document.querySelector("#temp-max");
   let temperatureElement = document.querySelector("#temperature");
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureMin.innerHTML = Math.round(celsiusTemperature);
+  temperatureMax.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
 
