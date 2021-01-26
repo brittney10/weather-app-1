@@ -69,9 +69,9 @@ function displayForecast(response) {
                   forecast.weather[0].icon
                 }@2x.png"/>
               <div class = "weather-forecast-temperature">
-              <strong><span id = "temp-min">${Math.round(
+              <strong><span id = "temp-max">${Math.round(
                 forecast.main.temp_max
-              )}°</strong> </span> / <span id ="temp-max"> ${Math.round(
+              )}°</strong> </span> / <span id ="temp-min"> ${Math.round(
       forecast.main.temp_min
     )}°</span>
               </div>
@@ -100,29 +100,45 @@ function getCurrentLocation(event) {
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperatureMin = document.querySelector("#temp-min");
-  let temperatureMax = document.querySelector("#temp-max");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  temperatureMin.innerHTML = Math.round(fahrenheitTemperature);
-  temperatureMax.innerHTML = Math.round(fahrenheitTemperature);
+  let forecastMax = document.querySelectorAll("#temp-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  let forecastMin = document.querySelectorAll("#temp-min");
+  forecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  celsiusLink.addEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  let temperatureMin = document.querySelector("#temp-min");
-  let temperatureMax = document.querySelector("#temp-max");
   let temperatureElement = document.querySelector("#temperature");
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  temperatureMin.innerHTML = Math.round(celsiusTemperature);
-  temperatureMax.innerHTML = Math.round(celsiusTemperature);
+  let forecastMax = document.querySelectorAll("#temp-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  let forecastMin = document.querySelectorAll("#temp-min");
+  forecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  celsiusLink.removeEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 }
 let celsiusTemperature = null;
-
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
